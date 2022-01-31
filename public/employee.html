@@ -1,0 +1,46 @@
+<html>
+    <head>
+<style>
+    body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url('nnn.jpg');
+    background-repeat: no-repeat;
+    background-size: 1600px 800px;
+}
+
+
+
+
+</style>
+    </head>
+    <body>
+<div id="vuemain">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="so.js"></script>
+
+<span>
+<form oninput="x.value=b.value" >
+Start Time: <input type="datetime-local" id="b" v-model="starTime" name="meeting-time"  min="2018-06-07T00:00" max="2050-06-14T00:00">
+<output name="x" for="b"></output>
+</form>
+
+<form oninput="x.value=c.value" >
+End Time: <input type="datetime-local" id="c" v-model="endtime" name="meeting-time"  min="2018-06-07T00:00" max="2050-06-14T00:00">
+
+<output name="x" for="b"></output>
+</form>
+<button><a  href="/index.html">Logout</a></button>
+
+
+
+
+</span>
+
+ <button @click="showsch = true;">Schedual</button>
+        <p v-if="showsch">Information About the Shif: {{sec}}</p>
+</div>
+
+
+    </body>
+</html>

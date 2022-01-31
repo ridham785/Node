@@ -1,0 +1,107 @@
+<html>
+    <head>
+        <style>
+        .high{
+            color:blue;
+        }
+        body{
+             background-image: url('backg.jpg');
+    background-repeat: no-repeat;
+    background-size: 1600px 800px;
+        }
+        a{
+            color:blue;
+        }
+        b{
+            color:blue;
+        }
+        .c{
+            color:#00d1ff;
+        }
+
+
+        </style>
+
+    </head>
+
+    <body>
+        <div id="vuemain">
+            <nav>
+
+                <button v-on:click="task">Select Employee
+                <!--<div id ="dvTable"></div>-->
+                    <table>
+                        <tr>
+                            <th>
+                                Employee Id
+                            </th>
+                            <th>
+                                Emplyee Name
+                            </th>
+                        </tr>
+
+                        <tr v-bind:class="{high:curemployee && curemployee.Employee_id == employee.Employee_id}" v-on:click="curemployee = employee" v-for="employee in employees">
+                            <td>{{employee.Employee_id}}</td>
+                            <td>{{employee.name}}</td>
+
+                        </tr>
+                    </table>
+                </button>
+
+                <span v-if="curemployee">
+                    <button v-on:click="taskadd(curemployee.Employee_id)" >Add task</button>
+                     <input id="Task_id" placeholder="Task_id(5 Digits)">
+
+                    <input id="Description" placeholder="Task Description">
+
+
+
+
+                    <button v-on:click="taskdelete">Delete task
+
+                    </button>
+
+
+
+
+                    <button v-on:click="st(curemployee.Employee_id)">Start Time</button>
+                    <button v-on:click="end(curemployee.Employee_id)">End Time</button>
+                         <a>Start Time: </a> <input type="datetime-local" id="meeting-time" v-model="starttime" name="meeting-time"  min="2018-06-07T00:00" max="2050-06-14T00:00">
+                        <b> End Time: </b><input type="datetime-local" id="end-time" v-model="endTime" name="meeting-time"  min="2018-06-07T00:00" max="2050-06-14T00:00">
+
+
+                </span>
+                <button><a  href="/index.html">Logout</a></button>
+            </nav>
+            <table>
+                        <tr v-for="task in tasks">
+                            <td class="c"> Employee_id :{{task.Employee_id}}</td><br>
+                            <td class="c">Task_ID: {{task.Task_id}}</td>
+                            <td class="c"> Task Description: {{task.Description}}</td>
+                        </tr>
+                        <tr v-for="time in starttime" >
+                            <td class="c">
+                               Start Time: {{time.time}}
+                            </td>
+                            <td class="c">
+                                Employee_id : {{time.Employee_id}}
+                            </td>
+                        </tr>
+                        <tr v-for="tim in endTime" >
+                            <td class="c">
+                               EndTime : {{tim.endtime}}
+                            </td>
+                            <td class="c">
+                                 Employee_id : {{tim.Employee_id}}
+                            </td>
+                        </tr>
+
+                    </table>
+
+        </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="so.js"></script>
+    </body>
+</html>
